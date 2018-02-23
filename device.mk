@@ -180,7 +180,7 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bc
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service.legacy \
     hostapd \
-    wificond \
+    libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf
 
