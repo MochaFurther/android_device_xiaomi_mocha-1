@@ -21,6 +21,10 @@ TARGET_TEGRA_VERSION := t124
 
 $(call inherit-product-if-exists, vendor/nvidia/shield/mocha.mk)
 
+# APEX
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/ld.config.txt:system/etc/swcodec/ld.config.txt
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/audio_policy.conf:system/etc/audio_policy.conf \

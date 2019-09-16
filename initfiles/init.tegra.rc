@@ -226,3 +226,6 @@ import init.ussrd.rc
 service watchdogd /sbin/watchdogd 10 110
     class core
     seclabel u:r:watchdogd:s0
+
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
