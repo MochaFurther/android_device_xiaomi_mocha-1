@@ -176,10 +176,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
 # Wifi
-# All Shield devices xurrently use broadcom wifi / bluetooth modules
+# All Shield devices currently use broadcom wifi / bluetooth modules
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service.legacy \
     hostapd \
+    wificond \
     wpa_supplicant \
     wpa_supplicant.conf
 
