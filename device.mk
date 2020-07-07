@@ -151,7 +151,7 @@ PRODUCT_PACKAGES += \
     ueventd.tn8.rc \
     ussrd.conf \
     ussr_setup
-    
+
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.tegra
@@ -166,8 +166,7 @@ PRODUCT_PACKAGES += thermal.tegra
 
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
-    device/xiaomi/mocha/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
-    device/xiaomi/mocha/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+    device/xiaomi/mocha/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
 
 # Wifi
 PRODUCT_COPY_FILES += \
