@@ -159,9 +159,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_CHARACTERISTICS := tablet
 
-# Thermal
-PRODUCT_PACKAGES += thermal.tegra
-
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
     device/xiaomi/mocha/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
