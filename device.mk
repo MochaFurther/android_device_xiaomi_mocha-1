@@ -23,6 +23,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ld.config.txt:$(TARGET_COPY_OUT_SYSTEM)/etc/swcodec/ld.config.txt
 
 # Audio
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/audio_policy.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy.conf \
     $(LOCAL_PATH)/media/nvaudio_conf.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/nvaudio_conf.xml
@@ -49,6 +53,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/aptXHD/libaptXHD_encoder.so:$(TARGET_COPY_OUT_VENDOR)/lib/libaptXHD_encoder.so
 
 # Bluetooth
+PRODUCT_PACKAGES += \
+    libbt-vendor \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service
+    
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/bluetooth/bt_vendor.conf
 
@@ -73,26 +82,56 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fsck.f2fs mkfs.f2fs
     
+# Graphics
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl-2.1
+    
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
+    
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service
+    
 # Graphics shim
 PRODUCT_PACKAGES += libs \
                     libshim_zw
                     
-# HIDL HALs
-$(call inherit-product, device/xiaomi/mocha/hidl.mk)
+# DRM HAL
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl
 
 # keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/tegra-kbc.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/tegra-kbc.kl \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/Vendor_0955_Product_7210.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/Vendor_0955_Product_7210.kl
-
-# Media config
+    
+# Light
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.mocha
+# Media
+PRODUCT_PACKAGES += \
+    android.hardware.media.omx@1.0-impl \
+    android.hardware.media.omx@1.0-service
+    
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
     $(LOCAL_PATH)/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(LOCAL_PATH)/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
     $(LOCAL_PATH)/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
+    
+# Memtrack
+PRODUCT_PACKAGES += \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service
     
 # NVIDIA
 PRODUCT_COPY_FILES += \
@@ -131,6 +170,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.sensor.stepdetector.xml
     
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-service.mocha \
+    vendor.lineage.power@1.0
+    
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.tn8 \
@@ -149,9 +193,15 @@ PRODUCT_PACKAGES += \
     ueventd.tn8.rc \
     ussrd.conf \
     ussr_setup
-
+    
+# Renderscript
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
+    
 # Sensors
 PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-service \
     sensors.tegra
 
 # System properties
@@ -181,3 +231,24 @@ PRODUCT_PACKAGES += \
 # wifi and bt macs settter
 PRODUCT_PACKAGES += \
     conn_init
+    
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0-impl \
+    android.hardware.thermal@1.0-service
+
+# Trust
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
+
+# USB HAL
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service.basic
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-service.mocha
+
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
