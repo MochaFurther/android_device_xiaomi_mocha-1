@@ -23,7 +23,7 @@
 #include <pthread.h>
 #include <fcntl.h>
 
-#include <cutils/log.h>
+#include <log/log.h>
 #include <cutils/str_parms.h>
 
 #include <hardware/hardware.h>
