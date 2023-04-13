@@ -18,6 +18,7 @@
 # by BoardConfigVendor.mk
 
 TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/mocha/include
+DEVICE_PATH := device/xiaomi/mocha
 
 # Architecture
 TARGET_CPU_ABI := armeabi-v7a
